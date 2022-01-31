@@ -1,0 +1,47 @@
+﻿@model List<UygulamaOdev_31_01_22.Models.DTO.TarihceDTO>
+
+@{
+    ViewBag.Title = "Tarihce";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="tm-container-inner tm-history">
+        <div class="row">
+            <div class="col-12">
+                @foreach (var item in Model)
+                {
+                    <div class="tm-history-inner">
+                        <img src="~/Content/img/@item.Resim" alt="Image" class="img-fluid tm-history-img" />
+                        <div class="tm-history-text">
+                            <h4 class="tm-history-title">@item.Baslik</h4>
+                            <p class="tm-mb-p">@item.Aciklama</p>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="tm-container-inner tm-featured-image">
+        <div class="row">
+            <div class="col-12">
+                <div class="placeholder-2">
+                    <div class="parallax-window-2" data-parallax="scroll" data-image-src="~/Content/img/about-05.jpg"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="tm-container-inner tm-features">
+        <div class="row">
+
+                <div class="col-lg-4">
+                    <div class="tm-feature">
+                        <i class="fas fa-4x fa-pepper-hot tm-feature-icon"></i>
+                        <p class="tm-feature-description">sdfsfsfsfsfsfsfs</p>
+                        <a href="index.html" class="tm-btn tm-btn-primary">Daha Fazlası</a>
+                    </div>
+                </div>
+
+        </div>
+    </div>
+</div>

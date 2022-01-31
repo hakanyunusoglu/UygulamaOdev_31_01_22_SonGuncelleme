@@ -1,0 +1,101 @@
+﻿@model List<UygulamaOdev_31_01_22.Models.DTO.UrunDTO>
+
+@{
+    ViewBag.Title = "Anasayfa";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int selectedid = 0;
+}
+<header class="row tm-welcome-section">
+    <h2 class="col-12 text-center tm-section-title">Gizli Bahçeye Hoşgeldiniz</h2>
+    <p class="col-12 text-center">Unutulmaz tatları farklı lokasyonlarda sunan Gizli Bahçe, dünyaca ünlü şeflerinin ellerinden gurme lezzetleri misafirleri ile paylaşıyor.</p>
+</header>
+
+<div class="tm-paging-links">
+    <nav>
+        <ul>
+            <li class="tm-paging-item"><a href="#" class="tm-paging-link active">Tümü</a></li>
+            @foreach (var item in Model)
+            {
+
+                if (selectedid != item.KategoriID)
+                {
+                    selectedid = item.KategoriID;
+                    <li class="tm-paging-item"><a href="#" class="tm-paging-link">@item.KategoriADI</a></li>
+                }
+            }
+        </ul>
+    </nav>
+</div>
+<div class="row tm-gallery">
+    <!-- gallery page 1 -->
+    <div id="tm-gallery-page-tümü" class="tm-gallery-page">
+        @foreach (var item in Model)
+        {
+            <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+                <figure>
+                    <img src="~/Content/img/gallery/@item.UrunResim" alt="Image" class="img-fluid tm-gallery-img" />
+                    <figcaption>
+                        <a href="/Urun/Detay/@item.UrunID"><h4 class="tm-gallery-title">@item.UrunAD</h4></a>
+                            <p class="tm-gallery-description">@item.Aciklama</p>
+                            <p class="tm-gallery-price">@String.Format(new System.Globalization.CultureInfo("tr-TR"), "{0:c2}", item.Fiyat)</p>
+                    </figcaption>
+                </figure>
+            </article>
+        }
+    </div>
+
+    <div id="tm-gallery-page-pizza" class="tm-gallery-page hidden">
+        @foreach (var item in Model)
+        {
+            if (item.KategoriID == 1)
+            {
+                <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+                    <figure>
+                        <img src="~/Content/img/gallery/@item.UrunResim" alt="Image" class="img-fluid tm-gallery-img" />
+                        <figcaption>
+                            <a href="/Urun/Detay/@item.UrunID"><h4 class="tm-gallery-title">@item.UrunAD</h4></a>
+                            <p class="tm-gallery-description">@item.Aciklama</p>
+                            <p class="tm-gallery-price">@String.Format(new System.Globalization.CultureInfo("tr-TR"), "{0:c2}", item.Fiyat)</p>
+                        </figcaption>
+                    </figure>
+                </article>
+            }
+        }
+    </div>
+    <div id="tm-gallery-page-salata" class="tm-gallery-page hidden">
+        @foreach (var item in Model)
+        {
+            if (item.KategoriID == 2)
+            {
+                <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+                    <figure>
+                        <img src="~/Content/img/gallery/@item.UrunResim" alt="Image" class="img-fluid tm-gallery-img" />
+                        <figcaption>
+                            <a href="/Urun/Detay/@item.UrunID"><h4 class="tm-gallery-title">@item.UrunAD</h4></a>
+                            <p class="tm-gallery-description">@item.Aciklama</p>
+                            <p class="tm-gallery-price">@String.Format(new System.Globalization.CultureInfo("tr-TR"), "{0:c2}", item.Fiyat)</p>
+                        </figcaption>
+                    </figure>
+                </article>
+            }
+        }
+    </div>
+    <div id="tm-gallery-page-noodle" class="tm-gallery-page hidden">
+        @foreach (var item in Model)
+        {
+            if (item.KategoriID == 3)
+            {
+                <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+                    <figure>
+                        <img src="~/Content/img/gallery/@item.UrunResim" alt="Image" class="img-fluid tm-gallery-img" />
+                        <figcaption>
+                            <a href="/Urun/Detay/@item.UrunID"><h4 class="tm-gallery-title">@item.UrunAD</h4></a>
+                            <p class="tm-gallery-description">@item.Aciklama</p>
+                            <p class="tm-gallery-price">@String.Format(new System.Globalization.CultureInfo("tr-TR"), "{0:c2}", item.Fiyat)</p>
+                        </figcaption>
+                    </figure>
+                </article>
+            }
+        }
+    </div>
+</div>
